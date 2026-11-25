@@ -1,0 +1,29 @@
+
+[workspace]
+resolver = "2"
+members = ["e2e", "program"]
+
+[workspace.package]
+authors = ["Anza Maintainers <maintainers@anza.xyz>"]
+repository = "https://github.com/zz-sol/private-tx-program"
+homepage = "https://anza.xyz/"
+license = "Apache-2.0"
+edition = "2021"
+
+[workspace.lints.rust.unexpected_cfgs]
+level = "warn"
+check-cfg = [
+    'cfg(target_os, values("solana"))',
+    'cfg(target_arch, values("bpf"))',
+    'cfg(feature, values("no-entrypoint"))',
+]
+
+[workspace.metadata.spellcheck]
+config = "scripts/spellcheck.toml"
+
+[workspace.metadata.cli]
+solana = "4.3.2"
+
+# Reduce the size of debug builds
+[profile.dev]
+debug = "line-tables-only"
