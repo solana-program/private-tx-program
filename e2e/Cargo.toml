@@ -1,0 +1,13 @@
+[package]
+name = "private-tx-e2e"
+version = "0.0.0"
+description = "End-to-end tests of the private transaction pool program"
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+publish = false
+
+[lints]
+workspace = true
